@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1600854542 source:d:\git数据库\c++资料\second_project\main.c
+	<stdio.h>
+	<stdlib.h>
+
