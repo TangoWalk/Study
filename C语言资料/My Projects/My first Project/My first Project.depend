@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1600923078 source:d:\git数据库\c语言资料\my projects\my first project\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1600921537 source:d:\git数据库\c语言资料\my projects\my first project\行列式.c
+
+1600935158 source:d:\git数据库\c语言资料\my projects\my first project\四阶行列式1.c
+	<stdio.h>
+
+1600935368 source:d:\git数据库\c语言资料\my projects\my first project\get_put.c
+	<stdio.h>
+
