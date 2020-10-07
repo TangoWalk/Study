@@ -5,8 +5,7 @@ import matplotlib.pyplot as plt
 
 def read():
 
-    FileNameStr = 'C://Users//user//Study//Python资料//问卷分析实验.xlsx'
-    Filexls = pd.ExcelFile(FileNameStr)
+    Filexls = pd.read_csv('C://Users//user//Study//Python资料//问卷分析实验.csv',encoding="utf-8")
 
     print(Filexls)
 read()
