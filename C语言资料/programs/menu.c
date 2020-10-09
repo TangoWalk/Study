@@ -70,7 +70,7 @@ void Third()
     }
    average /= num;
    printf("The average score is %4.2f.",average);
-          return 0;
+   return 0;
  }
       
 
