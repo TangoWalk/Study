@@ -1,12 +1,25 @@
+#!/usr/bin/env python
+# coding: utf-8
+
 import numpy as np
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
+import sys
 
 def read():
 
-    Filexls = pd.read_csv('C://Users//user//Study//Python资料//问卷分析实验.csv',encoding="utf-8")
+    global Filecsv
+    
+    Filecsv = pd.read_csv('D://git数据库//Python资料//data.csv',encoding = 'utf-8')
 
-    print(Filexls)
+    '''encode = sys.getdefaultencoding()
+    print(encode)'''
+    #编码检测
+
+    head = Filecsv.head()
+    print(head)
+    #读取检测
+    
 read()
     
