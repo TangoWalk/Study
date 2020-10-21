@@ -3,21 +3,35 @@
 int main()
 {
     char choice;
- void First();void Second();void Third();
-    printf("input 'A' to check the year;\ninput 'B' to translate the letter;\ninput 'C' to compute the average score.\n");
-    scanf("%c",&choice);
+    void First();void Second();void Third();
+    int i=0,times=1;
+    printf("enter the times you are to run:");
+    scanf("%d",&times);
 
-   switch(choice)
-  { case 'A':First();break;
-      
-     case 'B':Second();break;
 
-     case 'C':Third();break;
-     default:  printf("enter data error!\n");
-   }
+    while(i<=times)
+    {
+        getchar();
+        printf("input 'A' to check the year;\ninput 'B' to translate the letter;\ninput 'C' to compute the average score;\ninput 'D' to compute the average score of each student;\ninput 'E' to end the program.\n\n");
+        scanf("%c",&choice);
+        switch(choice)
+        { case 'A':First();break;
+
+          case 'B':Second();break;
+
+          case 'C':Third();break;
+
+          case 'D':Statics();break;
+
+          case 'E':i=times+1;printf("program has ended.");continue;
+
+          default: printf("enter data error!\n\n");
+        }
+        i++;
+    }
    return 0;
  }
-       
+
 
 void First()
 {
@@ -72,6 +86,35 @@ void Third()
    printf("The average score is %4.2f.",average);
    return 0;
  }
-      
 
-​
+void average()
+{
+    int cn,mt,eg,i=1;
+    float result=0;
+    getchar();
+    printf("input the scores of students:");
+    scanf("%d,%d,%d",&cn,&mt,&eg);
+    /*
+    printf("%d,%d,%d",cn,mt,eg);
+    */
+    result=0;
+    result=cn+mt+eg;
+    result/=3;
+    printf("The average score of this student is %4.2f\n\n",result);
+}
+void Statics()
+{
+    void average();
+    int count,i=1;
+    getchar();
+    printf("input the amount of students:");
+    scanf("%d",&count);
+
+    do
+    {
+        average();
+        i++;
+    }
+    while(i<=count);
+    return 0;
+}
