@@ -3,7 +3,7 @@
 int main()
 {
     char choice;
-    void First();void Second();void Third();
+    void First();void Second();void Third();void Statics();
     int i=0,times=1;
     printf("enter the times you are to run:");
     scanf("%d",&times);
@@ -23,7 +23,7 @@ int main()
 
           case 'D':Statics();break;
 
-          case 'E':i=times+1;printf("program has ended.");continue;
+          case 'E':printf("program has ended.");return 0;
 
           default: printf("enter data error!\n\n");
         }
@@ -102,6 +102,7 @@ void average()
     result/=3;
     printf("The average score of this student is %4.2f\n\n",result);
 }
+
 void Statics()
 {
     void average();
