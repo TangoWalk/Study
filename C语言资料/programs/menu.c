@@ -70,7 +70,7 @@ void Second()
 
 void Third()
  {
-   int num,count,score;
+   int num,count,score,scores_array[num][3],subject;
    float average;
    getchar();
    printf("input the amount of students:");
@@ -78,9 +78,14 @@ void Third()
    average = 0;
    for (count=0;count<num;count++)
    {
-          printf("input the score of Student %d:",count+1);
-          scanf("%d",&score);
-          average += score;
+          for (subject=0;subject<3;subject++)
+          {
+              printf("input the score of Student %d:",count+1);
+              scanf("%d",&score);
+              scores_array[count][subject]=score;
+              average += score;
+          }
+          printf("%d %d %d",scores_array[count][0],scores_array[count][1],scores_array[count][2]\n);
     }
    average /= num;
    printf("The average score is %4.2f.",average);
@@ -119,3 +124,4 @@ void Statics()
     while(i<=count);
     return 0;
 }
+
