@@ -6,7 +6,7 @@ int cn[100][100],mt[100][100],eg[100][100],stu[100],class_amount;
 int main()
 {
     char choice;
-    void scores_enter();void ave_each_sub();int max(int one,int theother);void sub_order_search();
+    void scores_enter();void ave_each_sub();int max(int one,int theother);void sub_order_search();void score_search();
     int i=0,times=1,a,sub_order[10000];
 
     scores_enter();
@@ -207,7 +207,27 @@ int main()
     return 0;
  }
 
+ void score_search()
+ {
+     int cl,num;
+     printf("请输入学生班级和学生编号（格式：a b）：");
+     scanf("%d %d",&cl,&num);
+     printf("该学生的三科成绩分别为：%d %d %d",cn[cl][num],mt[cl][num],eg[cl][num]);
+ }
+
 int max(int one,int theother)
 {
     return (one>theother?one:theother);
+}
+
+void max_cla()
+{
+    int max(int one,int theother);
+    int class_each,student_each;
+
+    for (student_each=0,student_each<stu[class_each],student_each++)
+        for (student_each=0,student_each<stu[class_each],student_each++)
+        {
+            cn_max=int max(cn[class_each][student_each],cn[class_each][student_each+1]);
+        }
 }
