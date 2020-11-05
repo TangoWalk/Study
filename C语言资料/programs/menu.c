@@ -85,7 +85,7 @@ void Third()
               scores_array[count][subject]=score;
               average += score;
           }
-          printf("%d %d %d",scores_array[count][0],scores_array[count][1],scores_array[count][2]\n);
+          printf("%d %d %d\n",scores_array[count][0],scores_array[count][1],scores_array[count][2]);
     }
    average /= num;
    printf("The average score is %4.2f.",average);
