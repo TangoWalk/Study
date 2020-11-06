@@ -252,3 +252,46 @@ void max_cla()
             cn_max=int max(cn[class_each][student_each],cn[class_each][student_each+1]);
         }
 }
+
+void cn_score_total(int cl,int stu)
+{
+    void cn_score_search(int cl,int stu);
+    int score_total=0,student_each,class_each;
+    for (student_each=0;student_each<stu[class_each];student_each++)
+         {
+             score_total += score_each(cl,stu);
+         }
+
+    return (score_total);
+
+}
+
+void mt_score_total(int cl,int stu)
+{
+    void mt_score_search(int cl,int stu);
+    int score_total=0,student_each,class_each;
+    for (student_each=0;student_each<stu[class_each];student_each++)
+         {
+             score_total += mt_score_search(cl,stu);
+         }
+
+    return (score_total);
+
+}
+
+void eg_score_total(int cl,int stu)
+{
+    void eg_score_search(int cl,int stu);
+    int score_total=0,student_each,class_each;
+    for (student_each=0;student_each<stu[class_each];student_each++)
+         {
+             score_total += eg_score_search(cl,stu);
+         }
+
+    return (score_total);
+}
+
+void cn_score_ave(int cl, int stu)
+{
+    void cn_score_total
+}
