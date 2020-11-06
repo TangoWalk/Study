@@ -293,5 +293,24 @@ void eg_score_total(int cl,int stu)
 
 void cn_score_ave(int cl, int stu)
 {
-    void cn_score_total
+    void cn_score_total(int cl,int stu);
+    int score_ave;
+    score_ave=cn_score_total(cl,stu)/stu[cl];
+    return(score_ave);
+}
+
+void mt_score_ave(int cl, int stu)
+{
+    void mt_score_total(int cl,int stu);
+    int score_ave;
+    score_ave=mt_score_total(cl,stu)/stu[cl];
+    return(score_ave);
+}
+
+void eg_score_ave(int cl, int stu)
+{
+    void eg_score_total(int cl,int stu);
+    int score_ave;
+    score_ave=eg_score_total(cl,stu)/stu[cl];
+    return(score_ave);
 }
