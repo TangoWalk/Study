@@ -217,29 +217,23 @@ int main()
 
 void cn_score_each(int cl,int stu)
 {
-    int student_each,class_each
-    for (class_each=0;class_each<class_amount;class_each++)
-        for (student_each=0;student_each<stu[class_each];student_each++)
-            cn_score = cn[class_each][student_each];
-    return(cn_score)
+    int cn_score;
+    cn_score = cn[cl][stu];
+    return(cn_score);
 }
 
 void mt_score_each(int cl,int stu)
 {
-    int student_each,class_each
-    for (class_each=0;class_each<class_amount;class_each++)
-        for (student_each=0;student_each<stu[class_each];student_each++)
-            mt_score = mt[class_each][student_each];
-    return(mt_score)
+    int mt_score;
+    mt_score = mt[cl][stu];
+    return(mt_score);
 }
 
 void eg_score_each(int cl,int stu)
 {
-    int student_each,class_each
-    for (class_each=0;class_each<class_amount;class_each++)
-        for (student_each=0;student_each<stu[class_each];student_each++)
-            eg_score = eg[class_each][student_each];
-    return(eg_score)
+    int eg_score;
+    eg_score = eg[cl][stu];
+    return(eg_score);
 }
 
 int max(int one,int theother)
