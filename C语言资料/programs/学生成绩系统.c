@@ -15,7 +15,7 @@ int main()
     sub_order_search();
     ave_each_sub();
 
-    printf("\nÇëÊäÈëÔËĞĞ³ÌĞòµÄ´ÎÊı:");
+    printf("\nè¯·è¾“å…¥è¿è¡Œç¨‹åºçš„æ¬¡æ•°:");
     scanf("%d",&times);
 
 
@@ -23,7 +23,7 @@ int main()
     while(i<=times)
     {
         getchar();
-        printf("ÊäÈë 'A' ¼ÆËãÃ¿¸ö°àµÄµ¥¿ÆÆ½¾ù³É¼¨;\nÊäÈë 'B'·µ»Øµ¥¿Æ°à¼¶×î¸ß³É¼¨;\nÊäÈë 'C' ·µ»ØÄ³Í¬Ñ§µÄÈı¿Æ³É¼¨;\nÊäÈë 'D'·µ»ØÄ³¿ÆÄ¿µÄ³É¼¨ÅÅĞò;\nÊäÈë 'E' ÍË³ö³ÌĞò¡£\n\n");
+        printf("è¾“å…¥ 'A' è®¡ç®—æ¯ä¸ªç­çš„å•ç§‘å¹³å‡æˆç»©;\nè¾“å…¥ 'B'è¿”å›å•ç§‘ç­çº§æœ€é«˜æˆç»©;\nè¾“å…¥ 'C' è¿”å›æŸåŒå­¦çš„ä¸‰ç§‘æˆç»©;\nè¾“å…¥ 'D'è¿”å›æŸç§‘ç›®çš„æˆç»©æ’åº;\nè¾“å…¥ 'E' é€€å‡ºç¨‹åºã€‚\n\n");
         scanf("%c",&choice);
         switch(choice)
         {
@@ -49,12 +49,12 @@ int main()
  {
      int amount_student,class_each,total_stus=0,student_each;
 
-     printf("ÇëÊäÈë°à¼¶×ÜÊı:");
+     printf("è¯·è¾“å…¥ç­çº§æ€»æ•°:");
      scanf("%d",&class_amount);
 
      for (class_each=0;class_each<class_amount;class_each++)
      {
-         printf("ÇëÊäÈë°à%dµÄÑ§ÉúÈËÊı:",class_each+1);
+         printf("è¯·è¾“å…¥ç­%dçš„å­¦ç”Ÿäººæ•°:",class_each+1);
          scanf("%d",&stu[class_each]);
 
      }
@@ -63,12 +63,12 @@ int main()
      {
          for (student_each=0;student_each<stu[class_each];student_each++)
          {
-            printf("\nÇëÊäÈë°à¼¶%dÖĞÑ§Éú%dµÄÈı¿Æ³É¼¨£¨¸ñÊ½Îªa b c£©£º",class_each+1,student_each+1);
+            printf("\nè¯·è¾“å…¥ç­çº§%dä¸­å­¦ç”Ÿ%dçš„ä¸‰ç§‘æˆç»©ï¼ˆæ ¼å¼ä¸ºa b cï¼‰ï¼š",class_each+1,student_each+1);
             scanf("%d %d %d",&cn[class_each][student_each],&mt[class_each][student_each],&eg[class_each][student_each]);
             /*printf("%d %d %d\n\n",cn[class_each][student_each],mt[class_each][student_each],eg[class_each][student_each]);*/
          }
      }
-     printf("\nÑ§Éú³É¼¨Â¼ÈëÍê±Ï\n\n");
+     printf("\nå­¦ç”Ÿæˆç»©å½•å…¥å®Œæ¯•\n\n");
      return 0;
 
  }
@@ -95,9 +95,9 @@ int main()
          scores_ave_mt /= stu[class_each];
          scores_ave_eg /= stu[class_each];
 
-         printf("\n°à¼¶%dµÄÓïÎÄÆ½¾ù³É¼¨Îª%.2f",class_each+1,scores_ave_cn);
-         printf("\n°à¼¶%dµÄÊıÑ§Æ½¾ù³É¼¨Îª%.2f",class_each+1,scores_ave_mt);
-         printf("\n°à¼¶%dµÄÓ¢ÓïÆ½¾ù³É¼¨Îª%.2f\n",class_each+1,scores_ave_eg);
+         printf("\nç­çº§%dçš„è¯­æ–‡å¹³å‡æˆç»©ä¸º%.2f",class_each+1,scores_ave_cn);
+         printf("\nç­çº§%dçš„æ•°å­¦å¹³å‡æˆç»©ä¸º%.2f",class_each+1,scores_ave_mt);
+         printf("\nç­çº§%dçš„è‹±è¯­å¹³å‡æˆç»©ä¸º%.2f\n",class_each+1,scores_ave_eg);
 
      }
 
@@ -109,7 +109,7 @@ int main()
      char sub;
      int student_total=0,sub_order[10000],class_each,student_each,box,i,j;
 
-     printf("\nÇëÊäÈëÏëÒª²éÑ¯µÄ¿ÆÄ¿£¨ÓïÎÄ£ºc£¬ÊıÑ§£ºm£¬Ó¢Óï£ºe£©£º");
+     printf("\nè¯·è¾“å…¥æƒ³è¦æŸ¥è¯¢çš„ç§‘ç›®ï¼ˆè¯­æ–‡ï¼šcï¼Œæ•°å­¦ï¼šmï¼Œè‹±è¯­ï¼šeï¼‰ï¼š");
      getchar();
 
      scanf("%c",&sub);
@@ -136,7 +136,7 @@ int main()
                  if (sub_order[i]<sub_order[i+1]) {box=sub_order[i];sub_order[i]=sub_order[i+1];sub_order[i+1]=box;}
              }
 
-             printf("\n¾­µ÷Õû£¬¸Ã¿Æ³É¼¨½µĞòÊÇ£º");
+             printf("\nç»è°ƒæ•´ï¼Œè¯¥ç§‘æˆç»©é™åºæ˜¯ï¼š");
 
              for(i=0;i<student_total;i++)
                 printf("%d ",sub_order[i]);
@@ -164,7 +164,7 @@ int main()
                  if (sub_order[i]<sub_order[i+1]) {box=sub_order[i];sub_order[i]=sub_order[i+1];sub_order[i+1]=box;}
              }
 
-             printf("\n¾­µ÷Õû£¬¸Ã¿Æ³É¼¨½µĞòÊÇ£º");
+             printf("\nç»è°ƒæ•´ï¼Œè¯¥ç§‘æˆç»©é™åºæ˜¯ï¼š");
 
              for(i=0;i<student_total;i++)
                 printf("%d ",sub_order[i]);
@@ -192,7 +192,7 @@ int main()
                  if (sub_order[i]<sub_order[i+1]) {box=sub_order[i];sub_order[i]=sub_order[i+1];sub_order[i+1]=box;}
              }
 
-             printf("\n¾­µ÷Õû£¬¸Ã¿Æ³É¼¨½µĞòÊÇ£º");
+             printf("\nç»è°ƒæ•´ï¼Œè¯¥ç§‘æˆç»©é™åºæ˜¯ï¼š");
 
              for(i=0;i<student_total;i++)
                 printf("%d ",sub_order[i]);
@@ -211,10 +211,31 @@ int main()
  int score_search()
  {
      int cl,num;
-     printf("ÇëÊäÈëÑ§Éú°à¼¶ºÍÑ§Éú±àºÅ£¨¸ñÊ½£ºa b£©£º");
+     printf("è¯·è¾“å…¥å­¦ç”Ÿç­çº§å’Œå­¦ç”Ÿç¼–å·ï¼ˆæ ¼å¼ï¼ša bï¼‰ï¼š");
      scanf("%d %d",&cl,&num);
-     printf("¸ÃÑ§ÉúµÄÈı¿Æ³É¼¨·Ö±ğÎª£º%d %d %d",cn[cl][num],mt[cl][num],eg[cl][num]);
+     printf("è¯¥å­¦ç”Ÿçš„ä¸‰ç§‘æˆç»©åˆ†åˆ«ä¸ºï¼š%d %d %d",cn[cl][num],mt[cl][num],eg[cl][num]);
  }
+
+void cn_score_each(int cl,int stu)
+{
+    int cn_score;
+    cn_score = cn[cl][stu];
+    return(cn_score);
+}
+
+void mt_score_each(int cl,int stu)
+{
+    int mt_score;
+    mt_score = mt[cl][stu];
+    return(mt_score);
+}
+
+void eg_score_each(int cl,int stu)
+{
+    int eg_score;
+    eg_score = eg[cl][stu];
+    return(eg_score);
+}
 
 int max(int one,int theother)
 {
@@ -252,3 +273,67 @@ int max_cla()
         }
 }
 
+<<<<<<< HEAD
+=======
+void cn_score_total(int cl,int stu)
+{
+    void cn_score_search(int cl,int stu);
+    int score_total=0,student_each,class_each;
+    for (student_each=0;student_each<stu[class_each];student_each++)
+         {
+             score_total += score_each(cl,stu);
+         }
+
+    return (score_total);
+
+}
+
+void mt_score_total(int cl,int stu)
+{
+    void mt_score_search(int cl,int stu);
+    int score_total=0,student_each,class_each;
+    for (student_each=0;student_each<stu[class_each];student_each++)
+         {
+             score_total += mt_score_search(cl,stu);
+         }
+
+    return (score_total);
+
+}
+
+void eg_score_total(int cl,int stu)
+{
+    void eg_score_search(int cl,int stu);
+    int score_total=0,student_each,class_each;
+    for (student_each=0;student_each<stu[class_each];student_each++)
+         {
+             score_total += eg_score_search(cl,stu);
+         }
+
+    return (score_total);
+}
+
+void cn_score_ave(int cl, int stu)
+{
+    void cn_score_total(int cl,int stu);
+    int score_ave;
+    score_ave=cn_score_total(cl,stu)/stu[cl];
+    return(score_ave);
+}
+
+void mt_score_ave(int cl, int stu)
+{
+    void mt_score_total(int cl,int stu);
+    int score_ave;
+    score_ave=mt_score_total(cl,stu)/stu[cl];
+    return(score_ave);
+}
+
+void eg_score_ave(int cl, int stu)
+{
+    void eg_score_total(int cl,int stu);
+    int score_ave;
+    score_ave=eg_score_total(cl,stu)/stu[cl];
+    return(score_ave);
+}
+>>>>>>> fd7bd93504401db60bde18ff09db2feb445fbac0
