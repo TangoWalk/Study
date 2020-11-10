@@ -6,13 +6,14 @@ int cn[100][100],mt[100][100],eg[100][100],stu[100],class_amount;
 int main()
 {
     char choice;
-    void scores_enter();void ave_each_sub();int max(int one,int theother);void sub_order_search();void score_search();
+    int scores_enter();int ave_each_sub();int max(int one,int theother);int sub_order_search();int score_search();
     int i=0,times=1,a,sub_order[10000];
 
     scores_enter();
     a = max(1,2);
     printf("%d",a);
     sub_order_search();
+    ave_each_sub();
 
     printf("\n请输入运行程序的次数:");
     scanf("%d",&times);
@@ -44,7 +45,7 @@ int main()
  }
 
 
- void scores_enter()
+ int scores_enter()
  {
      int amount_student,class_each,total_stus=0,student_each;
 
@@ -72,7 +73,7 @@ int main()
 
  }
 
- void ave_each_sub()
+ int ave_each_sub()
  {
      int class_each,student_each;
      float scores_ave_cn=0,scores_ave_mt=0,scores_ave_eg=0;
@@ -103,7 +104,7 @@ int main()
  }
 
 
- void sub_order_search()
+ int sub_order_search()
  {
      char sub;
      int student_total=0,sub_order[10000],class_each,student_each,box,i,j;
@@ -207,7 +208,7 @@ int main()
     return 0;
  }
 
- void score_search()
+ int score_search()
  {
      int cl,num;
      printf("请输入学生班级和学生编号（格式：a b）：");
@@ -220,14 +221,34 @@ int max(int one,int theother)
     return (one>theother?one:theother);
 }
 
-void max_cla()
+
+int max_cla()
 {
     int max(int one,int theother);
-    int class_each,student_each;
-
-    for (student_each=0,student_each<stu[class_each],student_each++)
-        for (student_each=0,student_each<stu[class_each],student_each++)
+    int class_each,student_each,cn_max,ass_cn[100][100],ass_mt[100][100],ass_eg[100][100];
+    for (class_each=0;class_each<class_amount;class_each++)
+        for(student_each=0;student_each<stu[class_])
         {
-            cn_max=int max(cn[class_each][student_each],cn[class_each][student_each+1]);
+            ass_cn[class_each][student_each]=cn[class_each][student_each];
+            ass_mt[class_each][student_each]=mt[class_each][student_each];
+            ass_eg[class_each][student_each]=eg[class_each][student_each];
+
+        }
+
+
+    for (student_each=0;student_each<stu[class_each];student_each++)
+        for (student_each=0;student_each<stu[class_each]-1;student_each++)
+        {
+            cn_max=int max(ass_cn[class_each][student_each],ass_cn[class_each][student_each+1]);
+            ass_cn[class_each][student_each]=cn_max;
+            ass_cn[class_each][student_each+1]=cn_max;
+            mt_max=int max(ass_mt[class_each][student_each],ass_cn[class_each][student_each+1]);
+            ass_mt[class_each][student_each]=cn_max;
+            ass_cn[class_each][student_each+1]=cn_max;
+            cn_max=int max(ass_cn[class_each][student_each],ass_cn[class_each][student_each+1]);
+            ass_cn[class_each][student_each]=cn_max;
+            ass_cn[class_each][student_each+1]=cn_max;
+
         }
 }
+
