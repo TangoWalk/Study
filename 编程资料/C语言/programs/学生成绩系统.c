@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 int cn[100][100],mt[100][100],eg[100][100],stu[100],class_amount;
 
 
@@ -8,6 +9,7 @@ int main()
     char choice;
     int scores_enter();int ave_each_sub();int sub_order_search();int score_search();int max_return();
     int i,times,sub_order[10000];
+    void create();
 
     scores_enter();
 
@@ -35,6 +37,7 @@ int main()
         }
         i++;
     }
+    create();
    return 0;
  }
 
@@ -71,6 +74,7 @@ int main()
  {
      int class_each,student_each;
      float scores_ave_cn=0,scores_ave_mt=0,scores_ave_eg=0;
+     FILE fp;
 
      for (class_each=0;class_each<class_amount;class_each++)
      {
@@ -247,4 +251,25 @@ int max(one,thoth)
 int min(one,thoth)
 {
     return (one<thoth?one:thoth);
+}
+
+void create()
+{
+    FILE *fp;
+    int i;
+   char ch,filename[10];
+
+   for (i=0;i<class_amount;i++)
+   {
+     printf("请输入第%d个班所用的文件名：",i+1);
+     scanf("%s",filename);
+     if((fp=fopen(filename,"w+"))==NULL)
+	{  printf("无法打开此文件\n");
+       exit(0);
+    }
+   }
+
+
+
+
 }
