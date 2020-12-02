@@ -20,7 +20,6 @@ void char_input()
         printf("\nÇëÊäÈëµÚ%d¸ö×Ö·û´®£º",char_count+1);
         scanf("%s",char_five[char_count]);
         getchar();
-        /*puts(char_five[char_count]);*/
     }
 
     return 0;
