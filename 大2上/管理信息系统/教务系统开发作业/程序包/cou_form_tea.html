@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>第一组教务系统</title>
+</head>
+<body>
+<a id="enter" href="file:///C:/Users/win10/Desktop/system.html">返回</a>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffff0000 align="center">
+<tr> <td align="center" class="biaoti" height="60">课程信息表</td> </tr></table>
+
+<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#ffff0000" class="tabtop13" align="center">
+  <tr>
+    <th width="10%" class="btbg font-center titfont" >课程编号</th>
+    <th width="10%" class="btbg font-center titfont" >课程名称</th>
+    <th width="10%" class="btbg font-center titfont" >任课教师</th>
+    <th width="10%" class="btbg font-center titfont" >每周课时</th>
+    <th width="10%" class="btbg font-center titfont" >上课时间</th>
+    <th width="10%" class="btbg font-center titfont" >上课地点</th>
+  </tr>
+
+  <tr>
+  <td> <input type="text" id="c1bianhao" value=""></td>
+  <td> <input type="text" id="c1mingcheng" value=""></td>
+  <td> <input type="text" id="c1jiaoshi" value=""></td>
+  <td> <input type="text" id="c1keshi" value=""></td>
+  <td> <input type="text" id="c1shijian" value=""></td>
+  <td> <input type="text" id="c1didian" value=""></td>
+  </tr>
+
+  <tr>
+  <td> <input type="text" id="c2bianhao" value=""></td>
+  <td> <input type="text" id="c2mingcheng" value=""></td>
+  <td> <input type="text" id="c2jiaoshi" value=""></td>
+  <td> <input type="text" id="c2keshi" value=""></td>
+  <td> <input type="text" id="c2shijian" value=""></td>
+  <td> <input type="text" id="c2didian" value=""></td>
+  </tr>
+
+  <tr>
+  <td> <input type="text" id="c3bianhao" value=""></td>
+  <td> <input type="text" id="c3mingcheng" value=""></td>
+  <td> <input type="text" id="c3jiaoshi" value=""></td>
+  <td> <input type="text" id="c3keshi" value=""></td>
+  <td> <input type="text" id="c3shijian" value=""></td>
+  <td> <input type="text" id="c3didian" value=""></td>
+  </tr>
+
+<button type="button" onclick="alert('')" align="right">添加课程</button>
+
+</table>
+
+<button type="button" onclick="save_course()" align="right">保存</button>
+<script>
+function save_course() { 
+    window.alert("课程信息保存成功！");     
+
+    localStorage.setItem("c1bianhaoc", document.getElementById("c1bianhao").value);
+    localStorage.setItem("c1mingchengc", document.getElementById("c1mingcheng").value);
+    localStorage.setItem("c1jiaoshic", document.getElementById("c1jiaoshi").value);
+    localStorage.setItem("c1keshic", document.getElementById("c1keshi").value);
+    localStorage.setItem("c1shijianc", document.getElementById("c1shijian").value);
+    localStorage.setItem("c1didianc", document.getElementById("c1didian").value);
+ 
+    localStorage.setItem("c2bianhaoc", document.getElementById("c2bianhao").value);
+    localStorage.setItem("c2mingchengc", document.getElementById("c2mingcheng").value);
+    localStorage.setItem("c2jiaoshic", document.getElementById("c2jiaoshi").value);
+    localStorage.setItem("c2keshic", document.getElementById("c2keshi").value);
+    localStorage.setItem("c2shijianc", document.getElementById("c2shijian").value);
+    localStorage.setItem("c2didianc", document.getElementById("c2didian").value);
+
+    localStorage.setItem("c3bianhaoc", document.getElementById("c3bianhao").value);
+    localStorage.setItem("c3mingchengc", document.getElementById("c3mingcheng").value);
+    localStorage.setItem("c3jiaoshic", document.getElementById("c3jiaoshi").value);
+    localStorage.setItem("c3keshic", document.getElementById("c3keshi").value);
+    localStorage.setItem("c3shijianc", document.getElementById("c3shijian").value);
+    localStorage.setItem("c3didianc", document.getElementById("c3didian").value);
+}
+</script>
+</body>
+</html>
