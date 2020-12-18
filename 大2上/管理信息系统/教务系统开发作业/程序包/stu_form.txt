@@ -5,7 +5,7 @@
 <title>第一组教务系统</title>
 </head>
 <body>
-<a id="enter" href="file:///C:/Users/win10/Desktop/system.html">返回</a>
+<a id="enter" href="file:///D:/system.html">返回</a>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#cccccc align="center">
 <tr> <td align="center" class="biaoti" height="60">学生个人信息表</td> </tr></table>
 

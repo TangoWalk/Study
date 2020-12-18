@@ -20,6 +20,13 @@ function get_gonggao() {
 </script>
 
 <p></p>
+<a id="stuform" href="file:///D:/stu_form.html">更新学生信息表</a>
+<p></p>
+<a id="couform" href="file:///D:/cou_form.html">更新课程信息表</a>
+<p></p>
+<a id="exaform" href="file:///D:/exa_form.html">更新考试信息表</a>
+<p></p>
+<a id="seaform" href="file:///D:/search_form.html">查阅表</a>
 
 </body>
 </html>
