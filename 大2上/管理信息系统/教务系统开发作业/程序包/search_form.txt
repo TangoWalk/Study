@@ -33,7 +33,6 @@ function search_formf() {
 
 <script>
 function search_student() { 
-
     document.getElementById("search_title").innerHTML = "学生个人信息表";
 
     document.getElementById("th1").innerHTML = "学号";
@@ -43,11 +42,8 @@ function search_student() {
     document.getElementById("th5").innerHTML = "奖惩管理";
     document.getElementById("th6").innerHTML = "学籍管理"; 
 
-    if(localStorage.getItem("sxuehao")==localStorage.getItem("s1xuehaoc")){search_student_first();}
-    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s2xuehaoc")){search_student_second();}
-    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s3xuehaoc")){search_student_third();}
-    else if(localStorage.getItem("sxuehao")=="teacher"){search_student_first();search_student_second();search_student_third();}
-    else{window.alert("该学生信息缺失！");}
+   if(localStorage.getItem("sxuehao")=="teacher"){search_student_first();search_student_second();search_student_third(); }
+   else{search_student_check();}
 }
 </script>
 
@@ -62,22 +58,13 @@ function search_course() {
     document.getElementById("th5").innerHTML = "上课时间";
     document.getElementById("th6").innerHTML = "上课地点"; 
 
-    if(localStorage.getItem("sxuehao")==localStorage.getItem("s1xuehaoc")){var szhuanye=localStorage.getItem("s1zhuanyec");}
-    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s2xuehaoc")){var szhuanye=localStorage.getItem("s2zhuanyec");}
-    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s3xuehaoc")){var szhuanye=localStorage.getItem
-("s3zhuanyec");}
-    else{var szhuanye="0";}
-    document.getElementById("test").innerHTML = localStorage.getItem("sxuehao");
-   if(szhuanye==localStorage.getItem("c1zhuanyec")){search_course_first();}
-   if(szhuanye==localStorage.getItem("c2zhuanyec")){search_course_second();}
-   if(szhuanye==localStorage.getItem("c3zhuanyec")){search_course_third();}
-   if(localStorage.getItem("sxuehao")=="teacher"){search_course_first();search_course_second();search_course_third();}
+   if(localStorage.getItem("sxuehao")=="teacher"){search_course_first();search_course_second();search_course_third(); }
+   else{search_course_check();}
 }
 </script>
 
 <script>
 function search_exam() { 
-    document.getElementById("test").innerHTML = localStorage.getItem("sxuehao");
     document.getElementById("search_title").innerHTML = "考试信息表";
 
     document.getElementById("th1").innerHTML = "考生学院";
@@ -87,16 +74,49 @@ function search_exam() {
     document.getElementById("th5").innerHTML = "考试地点";
     document.getElementById("th6").innerHTML = "考试座位"; 
 
+   if(localStorage.getItem("sxuehao")=="teacher"){search_exam_first();search_exam_second();search_exam_third(); }
+   else{search_exam_check();}
+}
+</script>
+
+<script>
+function search_student_check() { 
+
+    if(localStorage.getItem("sxuehao")==localStorage.getItem("s1xuehaoc")){search_student_first();}
+    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s2xuehaoc")){search_student_second();}
+    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s3xuehaoc")){search_student_third();}
+    else{window.alert("该学生信息缺失！");}
+}
+</script>
+
+<script>
+function search_course_check() { 
+
+    if(localStorage.getItem("sxuehao")==localStorage.getItem("s1xuehaoc")){var szhuanye=localStorage.getItem("s1zhuanyec");}
+    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s2xuehaoc")){var szhuanye=localStorage.getItem("s2zhuanyec");}
+    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s3xuehaoc")){var szhuanye=localStorage.getItem
+("s3zhuanyec");}
+    else{var szhuanye="0";window.alert("该学生信息缺失！");}
+ 
+   if(szhuanye==localStorage.getItem("c1zhuanyec")){search_course_first();}
+   if(szhuanye==localStorage.getItem("c2zhuanyec")){search_course_second();}
+   if(szhuanye==localStorage.getItem("c3zhuanyec")){search_course_third();}
+
+}
+</script>
+
+<script>
+function search_exam_check() { 
+
     if(localStorage.getItem("sxuehao")==localStorage.getItem("s1xuehaoc")){var szhuanye=localStorage.getItem("s1zhuanyec");}
     else if(localStorage.getItem("sxuehao")==localStorage.getItem("s2xuehaoc")){var szhuanye=localStorage.getItem("s2zhuanyec");}
     else if(localStorage.getItem("sxuehao")==localStorage.getItem("s3xuehaoc")){var szhuanye=localStorage.getItem("s3zhuanyec");}
-    else{var szhuanye=0;}
+    else{var szhuanye="0";window.alert("该学生信息缺失！");}
 
    if(szhuanye==localStorage.getItem("e1zhuanyec")){search_exam_first();}
    if(szhuanye==localStorage.getItem("e2zhuanyec")){search_exam_second();}
    if(szhuanye==localStorage.getItem("e3zhuanyec")){search_exam_third();}
-   if(localStorage.getItem("sxuehao")=="teacher"){search_exam_first();search_exam_second();search_exam_third();}
-}
+
 </script>
 
 
@@ -214,6 +234,7 @@ function search_course_third() {
 
 <script>
 function search_exam_first() {
+    document.getElementById("test").innerHTML = "success";
     document.getElementById("inf11").innerHTML = localStorage.getItem("e1xueyuanc");
     document.getElementById("inf12").innerHTML = localStorage.getItem("e1zhuanyec");
     document.getElementById("inf13").innerHTML = localStorage.getItem("e1kemuc");

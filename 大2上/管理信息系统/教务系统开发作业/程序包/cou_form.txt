@@ -6,6 +6,7 @@
 </head>
 <body>
 <a id="enter" href="file:///D:/system.html">返回</a>
+<p id="test"></p>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffff0000 align="center">
 <tr> <td align="center" class="biaoti" height="60">课程信息表</td> </tr></table>
@@ -55,22 +56,21 @@
 <script>
 function save_course() { 
     window.alert("课程信息保存成功！");     
-
-    localStorage.setItem("c1zhuanyec", document.getElementById("c1bianhao").value);
+    localStorage.setItem("c1zhuanyec", document.getElementById("c1zhuanye").value);
     localStorage.setItem("c1mingchengc", document.getElementById("c1mingcheng").value);
     localStorage.setItem("c1jiaoshic", document.getElementById("c1jiaoshi").value);
     localStorage.setItem("c1keshic", document.getElementById("c1keshi").value);
     localStorage.setItem("c1shijianc", document.getElementById("c1shijian").value);
     localStorage.setItem("c1didianc", document.getElementById("c1didian").value);
  
-    localStorage.setItem("c2zhuanyec", document.getElementById("c2bianhao").value);
+    localStorage.setItem("c2zhuanyec", document.getElementById("c2zhuanye").value);
     localStorage.setItem("c2mingchengc", document.getElementById("c2mingcheng").value);
     localStorage.setItem("c2jiaoshic", document.getElementById("c2jiaoshi").value);
     localStorage.setItem("c2keshic", document.getElementById("c2keshi").value);
     localStorage.setItem("c2shijianc", document.getElementById("c2shijian").value);
     localStorage.setItem("c2didianc", document.getElementById("c2didian").value);
 
-    localStorage.setItem("c3zhuanyec", document.getElementById("c3bianhao").value);
+    localStorage.setItem("c3zhuanyec", document.getElementById("c3zhuanye").value);
     localStorage.setItem("c3mingchengc", document.getElementById("c3mingcheng").value);
     localStorage.setItem("c3jiaoshic", document.getElementById("c3jiaoshi").value);
     localStorage.setItem("c3keshic", document.getElementById("c3keshi").value);

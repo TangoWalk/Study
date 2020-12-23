@@ -5,7 +5,9 @@
 <title>第一组教务系统</title>
 </head>
 <body>
+
 <a id="enter" href="file:///D:/system.html">返回</a>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffff0000 align="center">
 <tr> <td align="center" class="biaoti" height="60">考试信息表</td> </tr></table>
 
@@ -50,10 +52,10 @@
 
 </table>
 
-<button type="button" onclick="alert('课程信息保存完毕')" align="right">保存</button>
+<button type="button" onclick=save_student() align="right">保存</button>
 <script>
 function save_student() { 
-    window.alert("学生信息保存成功！");     
+    window.alert("考试信息保存成功！");     
     localStorage.setItem("e1xueyuanc", document.getElementById("e1xueyuan").value);
     localStorage.setItem("e1zhuanyec", document.getElementById("e1zhuanye").value);
     localStorage.setItem("e1kemuc", document.getElementById("e1kemu").value);

@@ -19,14 +19,17 @@ function get_gonggao() {
 }
 </script>
 
-<p></p>
-<a id="stuform" href="file:///D:/stu_form.html">更新学生信息表</a>
-<p></p>
-<a id="couform" href="file:///D:/cou_form.html">更新课程信息表</a>
-<p></p>
-<a id="exaform" href="file:///D:/exa_form.html">更新考试信息表</a>
-<p></p>
-<a id="seaform" href="file:///D:/search_form.html">查阅表</a>
+<div id="header" style="background-color:#FFA500;">
+<h1 style="margin-bottom:0;">教务信息系统</h1></div>
+
+<div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">
+<b>菜单</b><br>
+<a id="stuform" href="file:///D:/stu_form.html">更新学生信息表</a><br />
+<a id="couform" href="file:///D:/cou_form.html">更新课程信息表</a><br />
+<a id="exaform" href="file:///D:/exa_form.html">更新考试信息表</a><br />
+<a id="seaform" href="file:///D:/search_form.html">查阅表</a><br />
+</div>
+
 
 </body>
 </html>
