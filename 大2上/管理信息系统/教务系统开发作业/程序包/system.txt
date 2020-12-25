@@ -69,25 +69,11 @@ height:auto;
 <a id="post" href="file:///D:/post.html">公告栏</a>
 <a id="seaform" href="file:///D:/search_form.html">查阅表</a>
 <a id="stuform" href="file:///D:/stu_form.html">更新学生信息表</a>
-<a id="couform" href="file:///D:/cou_form.html" type="hidden">更新课程信息表</a>
-<a id="exaform" href="file:///D:/exa_form.html">更新考试信息表</a>
 <a id="signin" href="file:///D:/signin.html">重新登录</a>
 </div>
 
 
 <p1 id="brief">功能简介</p>
-<button type="button" onclick=furbish() align="right">保存</button>
-<script>
-function furbish() {
-if(localStorage.getItem("sxuehao")=="manager") 
-{
-window.alert("刷新成功"); 
-document.getElementById('couform').href="file:///D:/cou_form.html";
-document.getElementById('couform').name=更新课程信息表;
-document.getElementById('exaform').href="file:///D:/exa_form.html";
-document.getElementById('exaform').name=更新考试信息表;
-}
-}
 
 </script>
 </body>

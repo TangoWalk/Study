@@ -76,11 +76,13 @@ height:auto;
 </div>
 
 <p id="fabu"><b>最新公告</b></p>
-
-<button onclick="get_gonggao()">刷新</button>
+<input type="text" id="gonggao" value="发布公告">
+<button onclick="get_gonggao()">发布</button>
 <br />
 <script>
 function get_gonggao() {
+    var x = document.getElementById("gonggao").value;
+    localStorage.setItem("gongg", x);
     document.getElementById("fabu").innerHTML = localStorage.getItem("gongg");
 }
 </script>
