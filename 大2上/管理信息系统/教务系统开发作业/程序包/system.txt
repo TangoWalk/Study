@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="gbk">
@@ -54,6 +54,18 @@ max-width:100%;
 height:auto;
 }
 
+p1
+{
+text-indent: 200px;
+text-align:center;
+}
+
+p2
+{
+text-indent: 50px;
+text-align:center;
+}
+
 
 </style>
 
@@ -74,7 +86,7 @@ height:auto;
 
 
 <p1 id="brief">功能简介</p>
-
+<p2 id="brief">本界面为学生专用，主要功能为查阅公告，查阅相关信息和更新学生信息表。</p>
 </script>
 </body>
 </html>

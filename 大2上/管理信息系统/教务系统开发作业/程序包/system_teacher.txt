@@ -41,10 +41,11 @@ body {
   color: black;
 }
 
-p
+h1
 {
-text-indent: 200px;
-text-align:center;
+text-align: center;
+text-transform: uppercase;
+color: #FF9860AB;
 }
 
 img
@@ -53,39 +54,28 @@ max-width:100%;
 height:auto;
 }
 
+
 </style>
 
 </head>
-
 <body>
+<br />
 <div class="header">
   <h1>第一组教务系统</h1>
 </div>
-<br />
-
 <img src="file:///D:/bg.jpg">
-
 <div class="topnav">
 <a id="shouye" href="file:///D:/system.html">首页</a>
 <a id="post" href="file:///D:/post.html">公告栏</a>
 <a id="seaform" href="file:///D:/search_form.html">查阅表</a>
-<a id="stuform" href="file:///D:/stu_form.html">更新学生信息表</a>
-<a id="couform" href="file:///D:/cou_form.html">更新课程信息表</a>
-<a id="exaform" href="file:///D:/exa_form.html">更新考试信息表</a>
-
+<a id="couform" href="file:///D:/cou_form.html" type="hidden">更新课程信息表</a>
+<a id="signin" href="file:///D:/signin.html">重新登录</a>
 </div>
 
-<p id="fabu"><b>最新公告</b></p>
-<input type="text" id="gonggao" value="发布公告">
-<button onclick="get_gonggao()">发布</button>
-<br />
-<script>
-function get_gonggao() {
-    var x = document.getElementById("gonggao").value;
-    localStorage.setItem("gongg", x);
-    document.getElementById("fabu").innerHTML = localStorage.getItem("gongg");
-}
-</script>
 
+<p1 id="brief">功能简介</p>
+<p2 id="brief">本界面为教师专用，主要功能为查阅公告，查阅相关信息和更新课程信息表。</p>
+
+</script>
 </body>
 </html>
