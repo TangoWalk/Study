@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>第一组教务系统</title>
+<style>
+.button1 {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: 2px solid #008CBA;
+}
+
+.button1:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+h1
+{
+text-align: center;
+text-transform: uppercase;
+color: #FFBAB66E;
+}
+
+img
+{
+max-width:100%;
+height:auto;
+}
+
+</style>
+
+</head>
+<body>
+<div class="header">
+  <h1>第一组教务系统</h1>
+</div>
+<img src="file:///D:/program/bg.jpg">
+学号<input type="text" id="zhanghao" value="" >
+密码<input type="password" id="mima" value="">
+<br />
+<button class="button button1" onclick="check_password()">登录</button>
+<p> </p>
+<script>
+function check_password() {
+    localStorage.setItem("sxuehao", document.getElementById("zhanghao").value);
+    var mima = document.getElementById("mima").value;
+    if(mima=="123456"){
+    window.alert("欢迎!" ); 
+    window.location.href="file:///D:/program/system.html";}
+    else{window.alert("密码错误！")}
+
+    if((mima=="123456")&&(localStorage.getItem("sxuehao")=="teacher")){
+    window.location.href="file:///D:/program/system_teacher.html";}
+
+   if((mima=="123456")&&(localStorage.getItem("sxuehao")=="manager")){
+    window.location.href="file:///D:/program/system_manager.html";}
+}
+</script>
+
+</body>
+</html>

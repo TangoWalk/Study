@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>第一组教务系统</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* 头部样式 */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* 导航条 */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+ 
+/* 导航链接 */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+ 
+/* 链接 - 修改颜色 */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+h1
+{
+text-align: center;
+text-transform: uppercase;
+color: #FF9576AE;
+}
+
+img
+{
+max-width:100%;
+height:auto;
+}
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>第一组教务系统</h1>
+</div>
+
+<img src="file:///D:/program/bg.jpg">
+
+<div class="topnav">
+<a id="shouye" href="file:///D:/program/system.html">首页</a>
+<a id="post" href="file:///D:/program/post.html">公告栏</a>
+<a id="seaform" href="file:///D:/program/search_form.html">查阅表</a>
+<a id="stuform" href="file:///D:/program/stu_form.html">更新学生信息表</a>
+<a id="signin" href="file:///D:/signin.html">重新登录</a>
+</div>
+
+
+
+<p></p>
+<select id="search_form">
+<option value="form_stu">学生个人信息表</option>
+<option value="form_cou">课程信息表</option>
+<option value="form_exa">考试信息表</option>
+</select>
+<button type="button" onclick="search_formf()" align="right">查阅表</button>
+<p id="test"></p>
+
+<script>
+function search_formf() { 
+     window.alert("查阅运行成功！");
+     if((document.getElementById("search_form").selectedIndex)==0){  
+    search_student();
+   }
+    if((document.getElementById("search_form").selectedIndex)==1){
+    search_course();
+   }
+    if((document.getElementById("search_form").selectedIndex)==2){
+    search_exam();
+   }
+}
+</script>
+
+<script>
+function search_student() { 
+    document.getElementById("search_title").innerHTML = "学生个人信息表";
+
+    document.getElementById("th1").innerHTML = "学号";
+    document.getElementById("th2").innerHTML = "姓名";
+    document.getElementById("th3").innerHTML = "性别";
+    document.getElementById("th4").innerHTML = "专业";
+    document.getElementById("th5").innerHTML = "奖惩管理";
+    document.getElementById("th6").innerHTML = "学籍管理"; 
+
+   if(localStorage.getItem("sxuehao")=="teacher"){search_student_first();search_student_second();search_student_third(); }
+   else{search_student_check();}
+}
+</script>
+
+<script>
+function search_course() { 
+    document.getElementById("search_title").innerHTML = "课程信息表";
+
+    document.getElementById("th1").innerHTML = "授课专业";
+    document.getElementById("th2").innerHTML = "课程名称";
+    document.getElementById("th3").innerHTML = "任课教师";
+    document.getElementById("th4").innerHTML = "每周课时";
+    document.getElementById("th5").innerHTML = "上课时间";
+    document.getElementById("th6").innerHTML = "上课地点"; 
+
+   if(localStorage.getItem("sxuehao")=="teacher"){search_course_first();search_course_second();search_course_third(); }
+   else{search_course_check();}
+}
+</script>
+
+<script>
+function search_exam() { 
+    document.getElementById("search_title").innerHTML = "考试信息表";
+
+    document.getElementById("th1").innerHTML = "考生学院";
+    document.getElementById("th2").innerHTML = "考生专业";
+    document.getElementById("th3").innerHTML = "考试科目";
+    document.getElementById("th4").innerHTML = "考试时间";
+    document.getElementById("th5").innerHTML = "考试地点";
+    document.getElementById("th6").innerHTML = "考试座位"; 
+
+   if(localStorage.getItem("sxuehao")=="teacher"){search_exam_first();search_exam_second();search_exam_third(); }
+   else{search_exam_check();}
+}
+</script>
+
+<script>
+function search_student_check() { 
+
+    if(localStorage.getItem("sxuehao")==localStorage.getItem("s1xuehaoc")){search_student_first();}
+    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s2xuehaoc")){search_student_second();}
+    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s3xuehaoc")){search_student_third();}
+    else{window.alert("该学生信息缺失！");}
+}
+</script>
+
+<script>
+function search_course_check() { 
+
+    if(localStorage.getItem("sxuehao")==localStorage.getItem("s1xuehaoc")){var szhuanye=localStorage.getItem("s1zhuanyec");}
+    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s2xuehaoc")){var szhuanye=localStorage.getItem("s2zhuanyec");}
+    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s3xuehaoc")){var szhuanye=localStorage.getItem
+("s3zhuanyec");}
+    else{var szhuanye="0";window.alert("该学生信息缺失！");}
+ 
+   if(szhuanye==localStorage.getItem("c1zhuanyec")){search_course_first();}
+   if(szhuanye==localStorage.getItem("c2zhuanyec")){search_course_second();}
+   if(szhuanye==localStorage.getItem("c3zhuanyec")){search_course_third();}
+
+}
+</script>
+
+<script>
+function search_exam_check() { 
+
+    if(localStorage.getItem("sxuehao")==localStorage.getItem("s1xuehaoc")){var szhuanye=localStorage.getItem("s1zhuanyec");}
+    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s2xuehaoc")){var szhuanye=localStorage.getItem("s2zhuanyec");}
+    else if(localStorage.getItem("sxuehao")==localStorage.getItem("s3xuehaoc")){var szhuanye=localStorage.getItem("s3zhuanyec");}
+    else{var szhuanye="0";window.alert("该学生信息缺失！");}
+
+   if(szhuanye==localStorage.getItem("e1zhuanyec")){search_exam_first();}
+   if(szhuanye==localStorage.getItem("e2zhuanyec")){search_exam_second();}
+   if(szhuanye==localStorage.getItem("e3zhuanyec")){search_exam_third();}
+
+</script>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFF200FF" align="center">
+<tr> <td align="center" class="biaoti" height="60" id="search_title"></td> </tr></table>
+
+<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#FFFFFFFF" class="tabtop13" align="center">
+  <tr>
+    <th width="10%" class="btbg font-center titfont" id="th1"></th>
+    <th width="10%" class="btbg font-center titfont" id="th2"></th>
+    <th width="10%" class="btbg font-center titfont" id="th3"></th>
+    <th width="10%" class="btbg font-center titfont" id="th4"></th>
+    <th width="10%" class="btbg font-center titfont" id="th5"></th>
+    <th width="10%" class="btbg font-center titfont" id="th6"></th>
+  </tr>
+
+  <tr>
+  <td type="text" id="inf11" value=""> </td>
+  <td type="text" id="inf12" value=""> </td>
+  <td type="text" id="inf13" value=""> </td>
+  <td type="text" id="inf14" value=""> </td>
+  <td type="text" id="inf15" value=""> </td>
+  <td type="text" id="inf16" value=""> </td>
+  </tr>
+
+  <tr>
+  <td type="text" id="inf21" value=""> </td>
+  <td type="text" id="inf22" value=""> </td>
+  <td type="text" id="inf23" value=""> </td>
+  <td type="text" id="inf24" value=""> </td>
+  <td type="text" id="inf25" value=""> </td>
+  <td type="text" id="inf26" value=""> </td>
+  </tr>
+
+  <tr>
+  <td type="text" id="inf31" value=""> </td>
+  <td type="text" id="inf32" value=""> </td>
+  <td type="text" id="inf33" value=""> </td>
+  <td type="text" id="inf34" value=""> </td>
+  <td type="text" id="inf35" value=""> </td>
+  <td type="text" id="inf36" value=""> </td>
+  </tr>
+</table>
+
+<script>
+function search_student_first() {
+
+    document.getElementById("inf11").innerHTML = localStorage.getItem("s1xuehaoc");
+    document.getElementById("inf12").innerHTML = localStorage.getItem("s1xingmingc");
+    document.getElementById("inf13").innerHTML = localStorage.getItem("s1xingbiec");
+    document.getElementById("inf14").innerHTML = localStorage.getItem("s1zhuanyec");
+    document.getElementById("inf15").innerHTML = localStorage.getItem("s1jiangchengc");
+    document.getElementById("inf16").innerHTML = localStorage.getItem("s1xuejic");
+}
+
+</script>
+
+<script>
+function search_student_second() {
+    document.getElementById("inf21").innerHTML = localStorage.getItem("s2xuehaoc");
+    document.getElementById("inf22").innerHTML = localStorage.getItem("s2xingmingc");
+    document.getElementById("inf23").innerHTML = localStorage.getItem("s2xingbiec");
+    document.getElementById("inf24").innerHTML = localStorage.getItem("s2zhuanyec");
+    document.getElementById("inf25").innerHTML = localStorage.getItem("s2jiangchengc");
+    document.getElementById("inf26").innerHTML = localStorage.getItem("s2xuejic");
+}
+</script>
+
+<script>
+function search_student_third() {
+    document.getElementById("inf31").innerHTML = localStorage.getItem("s3xuehaoc");
+    document.getElementById("inf32").innerHTML = localStorage.getItem("s3xingmingc");
+    document.getElementById("inf33").innerHTML = localStorage.getItem("s3xingbiec");
+    document.getElementById("inf34").innerHTML = localStorage.getItem("s3zhuanyec");
+    document.getElementById("inf35").innerHTML = localStorage.getItem("s3jiangchengc");
+    document.getElementById("inf36").innerHTML = localStorage.getItem("s3xuejic");
+}
+</script>
+
+<script>
+function search_course_first() {
+
+    document.getElementById("inf11").innerHTML = localStorage.getItem("c1zhuanyec");
+    document.getElementById("inf12").innerHTML = localStorage.getItem("c1mingchengc");
+    document.getElementById("inf13").innerHTML = localStorage.getItem("c1jiaoshic");
+    document.getElementById("inf14").innerHTML = localStorage.getItem("c1keshic");
+    document.getElementById("inf15").innerHTML = localStorage.getItem("c1shijianc");
+    document.getElementById("inf16").innerHTML = localStorage.getItem("c1didianc");
+}
+</script>
+
+<script>
+function search_course_second() {
+
+    document.getElementById("inf21").innerHTML = localStorage.getItem("c2zhuanyec");
+    document.getElementById("inf22").innerHTML = localStorage.getItem("c2mingchengc");
+    document.getElementById("inf23").innerHTML = localStorage.getItem("c2jiaoshic");
+    document.getElementById("inf24").innerHTML = localStorage.getItem("c2keshic");
+    document.getElementById("inf25").innerHTML = localStorage.getItem("c2shijianc");
+    document.getElementById("inf26").innerHTML = localStorage.getItem("c2didianc");
+}
+</script>
+
+<script>
+function search_course_third() {
+
+    document.getElementById("inf31").innerHTML = localStorage.getItem("c3zhuanyec");
+    document.getElementById("inf32").innerHTML = localStorage.getItem("c3mingchengc");
+    document.getElementById("inf33").innerHTML = localStorage.getItem("c3jiaoshic");
+    document.getElementById("inf34").innerHTML = localStorage.getItem("c3keshic");
+    document.getElementById("inf35").innerHTML = localStorage.getItem("c3shijianc");
+    document.getElementById("inf36").innerHTML = localStorage.getItem("c3didianc");
+}
+</script>
+
+<script>
+function search_exam_first() {
+    document.getElementById("test").innerHTML = "success";
+    document.getElementById("inf11").innerHTML = localStorage.getItem("e1xueyuanc");
+    document.getElementById("inf12").innerHTML = localStorage.getItem("e1zhuanyec");
+    document.getElementById("inf13").innerHTML = localStorage.getItem("e1kemuc");
+    document.getElementById("inf14").innerHTML = localStorage.getItem("e1shijianc");
+    document.getElementById("inf15").innerHTML = localStorage.getItem("e1didianc");
+    document.getElementById("inf16").innerHTML = localStorage.getItem("e1zuoweic");
+}
+</script>
+
+<script>
+function search_exam_second() {
+    document.getElementById("inf21").innerHTML = localStorage.getItem("e2xueyuanc");
+    document.getElementById("inf22").innerHTML = localStorage.getItem("e2zhuanyec");
+    document.getElementById("inf23").innerHTML = localStorage.getItem("e2kemuc");
+    document.getElementById("inf24").innerHTML = localStorage.getItem("e2shijianc");
+    document.getElementById("inf25").innerHTML = localStorage.getItem("e2didianc");
+    document.getElementById("inf26").innerHTML = localStorage.getItem("e2zuoweic");
+}
+</script>
+
+<script>
+function search_exam_third() {
+    document.getElementById("inf31").innerHTML = localStorage.getItem("e3xueyuanc");
+    document.getElementById("inf32").innerHTML = localStorage.getItem("e3zhuanyec");
+    document.getElementById("inf33").innerHTML = localStorage.getItem("e3kemuc");
+    document.getElementById("inf34").innerHTML = localStorage.getItem("e3shijianc");
+    document.getElementById("inf35").innerHTML = localStorage.getItem("e3didianc");
+    document.getElementById("inf36").innerHTML = localStorage.getItem("e3zuoweic");
+}
+</script>
+</body>
+</html>

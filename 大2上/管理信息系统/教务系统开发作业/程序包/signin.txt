@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gbk">
+<meta charset="utf-8">
 <title>第一组教务系统</title>
 <style>
 .button1 {
@@ -43,24 +43,26 @@ height:auto;
 <div class="header">
   <h1>第一组教务系统</h1>
 </div>
-<img src="file:///D:/bg.jpg">
+<img src="file:///D:/program/bg.jpg">
 学号<input type="text" id="zhanghao" value="" >
 密码<input type="password" id="mima" value="">
 <br />
 <button class="button button1" onclick="check_password()">登录</button>
 <p> </p>
-<a id="enter" href="file:///D:/signin.html">进入教务系统</a>
 <script>
 function check_password() {
     localStorage.setItem("sxuehao", document.getElementById("zhanghao").value);
     var mima = document.getElementById("mima").value;
     if(mima=="123456"){
     window.alert("欢迎!" ); 
-    window.location.href="file:///D:/system.html";}
+    window.location.href="file:///D:/program/system.html";}
     else{window.alert("密码错误！")}
 
     if((mima=="123456")&&(localStorage.getItem("sxuehao")=="teacher")){
-    document.getElementById('enter').href="file:///D:/system.html";}
+    window.location.href="file:///D:/program/system_teacher.html";}
+
+   if((mima=="123456")&&(localStorage.getItem("sxuehao")=="manager")){
+    window.location.href="file:///D:/program/system_manager.html";}
 }
 </script>
 

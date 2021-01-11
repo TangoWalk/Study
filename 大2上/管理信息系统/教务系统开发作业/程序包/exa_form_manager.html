@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>第一组教务系统</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* 头部样式 */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* 导航条 */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+ 
+/* 导航链接 */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+ 
+/* 链接 - 修改颜色 */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+img
+{
+max-width:100%;
+height:auto;
+}
+h1
+{
+text-align: center;
+text-transform: uppercase;
+color: #FF829CE0;
+}
+
+</style>
+
+</head>
+<body>
+<div class="header">
+  <h1>第一组教务系统</h1>
+</div>
+<img src="file:///D:/program/bg.jpg">
+
+<div class="topnav">
+<a id="shouye" href="file:///D:/program/system_manager.html">首页</a>
+<a id="post" href="file:///D:/program/post_manager.html">公告栏</a>
+<a id="seaform" href="file:///D:/program/search_form_manager.html">查阅表</a>
+<a id="stuform" href="file:///D:/program/stu_form_manager.html">更新学生信息表</a>
+<a id="couform" href="file:///D:/program/cou_form_manager.html" type="hidden">更新课程信息表</a>
+<a id="exaform" href="file:///D:/program/exa_form_manager.html">更新考试信息表</a>
+<a id="signin" href="file:///D:/signin.html">重新登录</a>
+</div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffff0000 align="center">
+<tr> <td align="center" class="biaoti" height="60">考试信息表</td> </tr></table>
+
+<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#ffff0000" class="tabtop13" align="center">
+  <tr>
+    <th width="10%" class="btbg font-center titfont" >考生学院</th>
+    <th width="10%" class="btbg font-center titfont" >考生专业</th>
+    <th width="10%" class="btbg font-center titfont" >考试科目</th>
+    <th width="10%" class="btbg font-center titfont" >考试时间</th>
+    <th width="10%" class="btbg font-center titfont" >考试地点</th>
+    <th width="10%" class="btbg font-center titfont" >考试座位</th>
+  </tr>
+
+  <tr>
+  <td> <input type="text" id="e1xueyuan" value=""></td>
+  <td> <input type="text" id="e1zhuanye" value=""></td>
+  <td> <input type="text" id="e1kemu" value=""></td>
+  <td> <input type="text" id="e1shijian" value=""></td>
+  <td> <input type="text" id="e1didian" value=""></td>
+  <td> <input type="text" id="e1zuowei" value=""></td>
+  </tr>
+
+  <tr>
+  <td> <input type="text" id="e2xueyuan" value=""></td>
+  <td> <input type="text" id="e2zhuanye" value=""></td>
+  <td> <input type="text" id="e2kemu" value=""></td>
+  <td> <input type="text" id="e2shijian" value=""></td>
+  <td> <input type="text" id="e2didian" value=""></td>
+  <td> <input type="text" id="e2zuowei" value=""></td>
+  </tr>
+
+  <tr>
+  <td> <input type="text" id="e3xueyuan" value=""></td>
+  <td> <input type="text" id="e3zhuanye" value=""></td>
+  <td> <input type="text" id="e3kemu" value=""></td>
+  <td> <input type="text" id="e3shijian" value=""></td>
+  <td> <input type="text" id="e3didian" value=""></td>
+  <td> <input type="text" id="e3zuowei" value=""></td>
+  </tr>
+
+<button type="button" onclick="alert('')" align="right">添加课程</button>
+
+</table>
+
+<button type="button" onclick=save_student() align="right">保存</button>
+<script>
+function save_student() { 
+    window.alert("考试信息保存成功！");     
+    localStorage.setItem("e1xueyuanc", document.getElementById("e1xueyuan").value);
+    localStorage.setItem("e1zhuanyec", document.getElementById("e1zhuanye").value);
+    localStorage.setItem("e1kemuc", document.getElementById("e1kemu").value);
+    localStorage.setItem("e1shijianc", document.getElementById("e1shijian").value);
+    localStorage.setItem("e1didianc", document.getElementById("e1didian").value);
+    localStorage.setItem("e1zuoweic", document.getElementById("e1zuowei").value);
+ 
+    localStorage.setItem("e2xueyuanc", document.getElementById("e2xueyuan").value);
+    localStorage.setItem("e2zhuanyec", document.getElementById("e2zhuanye").value);
+    localStorage.setItem("e2kemuc", document.getElementById("e2kemu").value);
+    localStorage.setItem("e2shijianc", document.getElementById("e2shijian").value);
+    localStorage.setItem("e2didianc", document.getElementById("e2didian").value);
+    localStorage.setItem("e2zuoweic", document.getElementById("e2zuowei").value);
+
+    localStorage.setItem("e3xueyuanc", document.getElementById("e3xueyuan").value);
+    localStorage.setItem("e3zhuanyec", document.getElementById("e3zhuanye").value);
+    localStorage.setItem("e3kemuc", document.getElementById("e3kemu").value);
+    localStorage.setItem("e3shijianc", document.getElementById("e3shijian").value);
+    localStorage.setItem("e3didianc", document.getElementById("e3didian").value);
+    localStorage.setItem("e3zuoweic", document.getElementById("e3zuowei").value);
+
+}
+</script>
+</body>
+</html>

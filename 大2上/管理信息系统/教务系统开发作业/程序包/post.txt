@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gbk">
+<meta charset="utf-8">
 <title>第一组教务系统</title>
 <style>
 * {
@@ -63,15 +63,15 @@ height:auto;
 </div>
 <br />
 
-<img src="file:///D:/bg.jpg">
+<img src="file:///D:/program/bg.jpg">
 
 <div class="topnav">
-<a id="shouye" href="file:///D:/system.html">首页</a>
-<a id="post" href="file:///D:/post.html">公告栏</a>
-<a id="seaform" href="file:///D:/search_form.html">查阅表</a>
-<a id="stuform" href="file:///D:/stu_form.html">更新学生信息表</a>
-<a id="couform" href="file:///D:/cou_form.html">更新课程信息表</a>
-<a id="exaform" href="file:///D:/exa_form.html">更新考试信息表</a>
+<a id="shouye" href="file:///D:/program/system.html">首页</a>
+<a id="post" href="file:///D:/program/post.html">公告栏</a>
+<a id="seaform" href="file:///D:/program/search_form.html">查阅表</a>
+<a id="stuform" href="file:///D:/program/stu_form.html">更新学生信息表</a>
+<a id="couform" href="file:///D:/program/cou_form.html">更新课程信息表</a>
+<a id="exaform" href="file:///D:/program/exa_form.html">更新考试信息表</a>
 
 </div>
 
