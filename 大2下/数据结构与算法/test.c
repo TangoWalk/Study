@@ -1,8 +1,7 @@
 #include<stdio.h>
-#define LIST_INIT_SIZE 100
-#define LISTINCREMENT 10
+#include<stdlib.h>
 
-struct data_form{
+typedef struct data_form{
     char stu_num[50];
     char stu_name[50];
     char stu_dpm[50];
@@ -12,64 +11,77 @@ struct data_form{
 
     struct data_form *prior;
     struct data_form *next;
-};
+}form_head,stu_one,stu_two,stu_three;
 
-struct data_form form_head,stu_one,stu_two,stu_three;
+char value[50];//返回字符串出错，无奈之举.
+
+struct data_form *init_head(struct data_form *head){//创建表头
+    head=(struct data_form *)malloc(sizeof(struct data_form));//首元结点
+    head->prior=NULL;//首元前驱和后继均为空
+    head->next=NULL;
+
+    return head;}
+
+struct data_form *add_nude(struct data_form *head,int stus_count,int insert_loca,int insert_num){//此函数可初始化链表，也可增加结点。
+    //stus_count为学生总数，插入之前不需改变；insert_loca指明插入的位置，初始化时为0；insert_num指明插入的表数量。
+    struct data_form *last = head;
+    struct data_form *temper;
+
+    char temp[50];
+
+    for (int stu_count=1;stu_count<insert_loca;stu_count++){
+            last = last->next;
+            temper = last->next;//指向插入位置的下一个表
+    }
+
+    for (int stu_count=1;stu_count<=stus_count-insert_num;++stu_count){
+        struct data_form *nude=(struct data_form*)malloc(sizeof(struct data_form));//创建新结点
+        nude->prior=NULL;//循环开始时初始化nude
+        nude->next=NULL;
 
 
-/*
-void init_list(struct data_form L){//创建L表
-    L.stu_num = (char *)calloc(LIST_INIT_SIZE,sizeof(char));
-    if(!L.stu_num) exit("OVERFLOW");
-    L.stu_name = (char *)calloc(LIST_INIT_SIZE,sizeof(char));
-    if(!L.stu_name) exit("OVERFLOW");
-    L.stu_dpm = (char *)calloc(LIST_INIT_SIZE,sizeof(char));
-    if(!L.stu_dpm) exit("OVERFLOW");
-    L.stu_pfss = (char *)calloc(LIST_INIT_SIZE,sizeof(char));
-    if(!L.stu_pfss) exit("OVERFLOW");
-    L.stu_unit = (char *)calloc(LIST_INIT_SIZE,sizeof(char));
-    if(!L.stu_unit) exit("OVERFLOW");
-    L.stu_work = (char *)calloc(LIST_INIT_SIZE,sizeof(char));
-    if(!L.stu_work) exit("OVERFLOW");
+        printf("\n请输入学生学号：");//每个表录入具体数据
+        scanf("%s",&temp);
+        strcpy(nude->stu_num,temp);
+        //printf("%s",nude->stu_num);
 
+        last->next=nude;//last的后继指向nude
+        nude->prior=last;//nude的前驱指向last
+        //前面两个步骤的次序可逆
+
+        last=last->next;//last的后继指回最后一个表nude
+
+    }
+
+    if(insert_loca>=1){last->next=temper;}
+    else{last->next=head;head->prior=last;}//表头的前驱指向表尾...
+    //表头也在计数范围内，为第0个表
+
+    return head;}
+
+char get_elem(struct data_form *head,int stu_count){
+    printf("\n%s",head->prior->stu_num);
+    for(int each_stu=1;each_stu<=stu_count;each_stu++){
+        head=head->next;
+        printf("\n%s",head->stu_num);
+    }
+    strcpy(value,head->stu_num);
+    printf("\n%s",value);
 }
-*/
 
-void init_head(){
-struct data_form form_head;
-char *p;
-p = &form_head;
-printf("%s\n",p);}
-
-void put_elem(struct data_form L,char *p){//录入数据
-    char str[100],*n;
-
-
-    scanf("%s",&str);
-    printf("%s",str);
-    strcpy(L.stu_num,str);
-
-    printf("%s",L.stu_num);
-
-
-
-}
 
 void main()
 {
-    void init_head();
-    void put_elem(struct data_form L);
+    struct data_form *head = NULL;
+    head = init_head(head);
+    head = add_nude(head,6,0,0);
+    get_elem(head,0);
 
-    init_head();
-    put_elem(stu_one);
+    head = add_nude(head,6,2,3);
+    get_elem(head,9);
 
-    /*
-    init_list(stu_name)
-    init_list(stu_dpm)
-    init_list(stu_pfss)
-    init_list(stu_unit)
-    init_list(stu_work)
-    */
+    printf("\n%s",value);
+
 
 	printf("OK");
 }
