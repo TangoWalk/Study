@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct data_form{
-    char stu_num[50];
+    int stu_num;
     char stu_name[50];
     char stu_dpm[50];
     char stu_pfss[50];
@@ -9,7 +9,7 @@ typedef struct data_form{
     char stu_work[50];
     struct data_form *prior;
     struct data_form *next;
-}form_head,stu_one,stu_two,stu_three;
+};
 int stus_count;//学生总数
 struct data_form *return_to_head(struct data_form *head,int stu_count){
  int each_stu;
@@ -20,11 +20,11 @@ struct data_form *init_head(struct data_form *head){//创建表头
     head->prior=NULL;//首元前驱和后继均为空
     head->next=NULL;
     return head;}
-struct data_form *add_nude(struct data_form *head,int insert_loca,int insert_num){//此函数可初始化链表，也可增加结点。
+struct data_form *add_nude(struct data_form *head,int insert_loca,int insert_num,int num_check){//此函数可初始化链表，也可增加结点。
     //stus_count为学生总数，插入之前不需改变；insert_loca指明插入的位置，初始化时为0；insert_num指明插入的表数量。
     struct data_form *last = head;
     struct data_form *behind,*front;
- int stu_count;
+    int stu_count,stu_num;
     char temp[50];
     if (insert_loca!=stus_count+1&&insert_loca!=1){//插入时启用
         for (stu_count=1;stu_count<insert_loca;stu_count++){last = last->next;behind = last->next;}//指向插入位置的前驱和后继
@@ -37,10 +37,11 @@ struct data_form *add_nude(struct data_form *head,int insert_loca,int insert_num
         nude->next=NULL;
 
 
+        if (num_check==0){printf("\n请输入学生%d的学号：",stu_count);//每个表录入具体数据
+        scanf("%d",&stu_num);
+        nude->stu_num=stu_num;}
+        else{stu_num=num_check; nude->stu_num=stu_num;}
 
-        printf("\n请输入学生%d的学号：",stu_count);//每个表录入具体数据
-        scanf("%s",&temp);
-        strcpy(nude->stu_num,temp);
         //printf("%s",nude->stu_num);
 
         printf("\n请输入学生%d的姓名：",stu_count);//每个表录入具体数据
@@ -99,12 +100,7 @@ struct data_form * index_by_label(struct data_form *head,char index_label,int st
     case 'c':return head->stu_cpn;break;
     case 'w':return head->stu_work;break;
     case 'a':{
-        printf("\n\n学生%d的学号是：%s",stu_count,head->stu_num);
-        printf("\n学生%d的姓名是：%s",stu_count,head->stu_name);
-        printf("\n学生%d的所在系是：%s",stu_count,head->stu_dpm);
-        printf("\n学生%d的专业是：%s",stu_count,head->stu_pfss);
-        printf("\n学生%d的工作单位是：%s",stu_count,head->stu_cpn);
-        printf("\n学生%d的职务是：%s",stu_count,head->stu_work);
+        printf("\n\t%d\t%d\t%s\t%s\t%s\t%s\t\t%s",stu_count,head->stu_num,head->stu_name,head->stu_dpm,head->stu_pfss,head->stu_cpn,head->stu_work);
         break;}
     }//查找一学生所有信息
 }
@@ -121,8 +117,7 @@ struct data_form * get_elem(struct data_form *head,int stu_count,char choice){
 
     switch(choice){
         case 'c':{char value[50];printf("\n请输入修改的值：");getchar();scanf("%s",&value);strcpy(index_by_label(head,0,stu_count),value);break;}//更改某项信息
-        case 'i':{char value[50];strcpy(value,index_by_label(head,0,stu_count));printf("学生%d的该项数据是：%s",stu_count,value);break;}//查找一学生某项信息
-        case 'a':{index_by_label(head,'a',stu_count);break;}//查找一学生的所有信息
+        case 'a':{printf("\n\n\t编号\t学号\t姓名\t系\t专业\t工作单位\t职务");index_by_label(head,'a',stu_count);break;}//查找一学生的所有信息
     }
 
     head=return_to_head(head,stu_count);
@@ -131,7 +126,7 @@ struct data_form * get_elem(struct data_form *head,int stu_count,char choice){
 }
 
 void search_by_index(struct data_form *head){//返回符合条件的学生数组
-    int stu_count,each_stu,amount;
+    int stu_count,each_stu,amount=0;
     char index,value[50];
     printf("请输入查找的值：");
     scanf("%s",&value);
@@ -139,34 +134,34 @@ void search_by_index(struct data_form *head){//返回符合条件的学生数组
     printf("\n请输入匹配的信息(学号:n,姓名:e,所属系:d,所属专业:p,工作单位:c,职务:w):");
     getchar();scanf("%c",&index);//printf("%c",index);
 
-    amount=0;
+    printf("\n\n\t编号\t学号\t姓名\t系\t专业\t工作单位\t职务");
 
     for(stu_count=0;stu_count<=stus_count;stu_count++){
         //printf("%s",index_by_label(head,index,stu_count));
         if (strcmp(value,index_by_label(head,index,stu_count))==0&&stu_count!=0){
-   head=return_to_head(head,stu_count);
-   get_elem(head,stu_count,'a');
-   for(each_stu=0;each_stu<stu_count;each_stu++){head=head->next;}amount+=1;}
+            index_by_label(head,'a',stu_count);
+            head=return_to_head(head,stu_count);
+            for(each_stu=0;each_stu<stu_count;each_stu++){head=head->next;}amount+=1;}
         head = head->next;
     }
     //printf("OK");
     //head = return_to_head(head,stus_count+1);
- printf("\n\n共%d个学生",amount);
+ printf("共%d个学生",amount);
 
 }
 
 struct data_form * init_chain(struct data_form *head,int stus_init){//初始化链表
     head = init_head(head);
-    head = add_nude(head,1,stus_init);
+    head = add_nude(head,1,stus_init,0);
     return head;
 }
 
 void get_status(struct data_form *head){
  int stu_count;
-    printf("\n\n——————————当前状态——————————");
+    printf("\n\n\t——————————当前状态——————————");
     for(stu_count=0;stu_count<=stus_count;stu_count++){
-        if(stu_count==0){printf("\n——————————表头——————————");}
-        else{printf("\n——————————学生%d(学号%s)——————————",stu_count,head->stu_num);}
+        if(stu_count==0){printf("\n\t——————————表头——————————");printf("\n\n\t编号\t学号\t姓名\t系\t专业\t工作单位\t职务");}
+        else{index_by_label(head,'a',stu_count);}
         head=head->next;
     }
 }
@@ -189,7 +184,7 @@ void main()
 {
     struct data_form *head = NULL;
     char choice,next;
-    int num,insert_num,insert_loca,times_count;
+    int num,insert_num,insert_loca,times_count,stu_num,stu_count;
 
     printf("初始化链表...");
     stus_count = 0;
@@ -201,16 +196,18 @@ void main()
 
     for (times_count=1;times_count<2;times_count++){
         get_status(head);
-        printf("\n请输入需要运行的功能(\n插入结点:p,\n查找某学生的所有信息:a,\n查找某学生的某项信息:i,\n查找学生的相同值:t,\n删除某学生的所有信息:l\n)：");
+        printf("\n\n请输入需要运行的功能(\n插入结点:p,\n查找某学生的所有信息:a,\n查找学生的相同值:t,\n删除某学生的所有信息:l，修改某学生的某项信息:c,\n)：");
         getchar();scanf("%c",&choice);
         switch(choice){
         case 'p':{
-            printf("\n请输入插入的位置：");getchar();scanf("%d",&insert_loca);
-            printf("\n请输入插入的数量：");getchar();scanf("%d",&insert_num);
-            head = add_nude(head,insert_loca,insert_num);break;}
-            //for (int each_stu=0;each_stu<stus_count;each_stu++){printf("%s",head->stu_num);}head=head->next;}
+            printf("\n请输入插入的学生学号：");scanf("%d",&stu_num);
+            head=head->next;
+            for (insert_loca=1;insert_loca<=stus_count;insert_loca++){if(stu_num<=head->stu_num){break;}else{head=head->next;}}
+            head=return_to_head(head,insert_loca);
+            head=add_nude(head,insert_loca,1,stu_num);
+            break;}
+
         case 'a':{printf("\n请输入需要查找的学生编号：");getchar();scanf("%d",&insert_num);get_elem(head,insert_num,'a');break;}
-        case 'i':{printf("\n请输入需要查找的学生编号：");getchar();scanf("%d",&insert_num);get_elem(head,insert_num,'i');break;}
         case 't':{search_by_index(head);break;}
         case 'c':{printf("\n请输入需要更改信息的学生编号：");getchar();scanf("%d",&insert_num);get_elem(head,insert_num,'c');break;}
         case 'l':{printf("\n请输入需要删除的学生编号：");getchar();scanf("%d",&insert_num);delete_form(head,insert_num);break;}
@@ -220,4 +217,5 @@ void main()
 }
  printf("\n程序运行结束");
 }
+
 
